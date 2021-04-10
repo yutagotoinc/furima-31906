@@ -1,24 +1,58 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|  Column           |  Type    |  Options      |
+|  ----------       |  ------  |  --------     |
+|  nickname         |  string  |  null: false  |
+|  email            |  string  |  null: false  |
+|  password         |  string  |  null: false  |
+|  first_name       |  string  |  null: false  |
+|  last_name        |  string  |  null: false  |
+|  first_name_kana  |  string  |  null: false  |
+|  last_name_kana   |  string  |  null: false  |
+|  birth_day        |  string  |  null: false  |
 
-* Ruby version
+## productsテーブル
 
-* System dependencies
+|  Column           |  Type        |  Options        |
+|  ---------        |  ------      |  --------       |
+|  name             |  string      |  null: false    |
+|  description      |  text        |  null: false    |
+|  category         |  integer     |  null: false    |
+|  status           |  integer     |  null: false    |
+|  shipping_charges |  integer     |  null: false    |
+|  shipping_area    |  integer     |  null: false    |
+|  days_to_ship     |  integer     |  null: false    |
+|  price            |  integer     |  null: false    |
+|  user_id          |  references  |  null: false    |
+|  image            |  ------      |  ActiveStorage  |
 
-* Configuration
+## addressesテーブル
 
-* Database creation
+|  Column       |  Type        |  Options      |
+|  ----------   |  ------      |  --------     |
+|  zip_code     |  string      |  null: false  |
+|  prefecture   |  string      |  null: false  |
+|  city         |  string      |  null: false  |
+|  block_number |  string      |  null: false  |
+|  building     |  string      |  null: false  |
+|  phone_number |  integer     |  null: false  |
+|  user_id      |  references  |  null: false  |
 
-* Database initialization
+## cardsテーブル
 
-* How to run the test suite
+|  Column       |  Type        |  Options      |
+|  ----------   |  ------      |  --------     |
+|  product_id   |  references  |  null: false  |
+|  user_id      |  string      |  null: false  |
 
-* Services (job queues, cache servers, search engines, etc.)
+## imagesテーブル
 
-* Deployment instructions
+|  Column       |  Type        |  Options       |
+|  ----------   |  ------      |  --------      |
+|  image        |  ------      |  ActiveStorage |
+|  product_id   |  references  |  null: false   |
 
-* ...
+
+
