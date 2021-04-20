@@ -49,9 +49,9 @@
 
 ## ordersテーブル
 
-|  Column       |  Type        |  Options           |
-|  ----------   |  ------      |  --------          |
-|  user         |  references  |  foreign_key: true |
-|  product      |  references  |  null: false       |
+|  Column       |  Type        |  Options            |
+|  ----------   |  ------      |  --------           |
+|  user         |  references  |  foreign_key: true  |
+|  product      |  references  |  null: false        |
 
 
