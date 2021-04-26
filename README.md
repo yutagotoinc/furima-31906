@@ -15,6 +15,7 @@
 |  first_name_kana    |  string  |  null: false               |
 |  last_name_kana     |  string  |  null: false               |
 |  birth_day          |  date    |  null: false               |
+・has_many:product
 
 ## productsテーブル
 
@@ -29,6 +30,7 @@
 |  duration_id         |  integer     |  null: false        |
 |  price               |  integer     |  null: false        |
 |  user                |  references  |  foreign_key: true  |
+・belongs_to:user
 
 ## addressesテーブル
 
@@ -41,6 +43,7 @@
 |  building      |  string      |  -----------        |
 |  phone_number  |  integer     |  null: false        |
 |  order         |  references  |  foreign_key: true  |
+・belongs_to:order
 
 ## ordersテーブル
 
@@ -48,5 +51,5 @@
 |  ----------   |  ------      |  --------           |
 |  user         |  references  |  foreign_key: true  |
 |  product      |  references  |  foreign_key: true  |
-
+・has_one:address
 
