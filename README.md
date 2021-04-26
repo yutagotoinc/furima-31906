@@ -6,16 +6,14 @@
 |  ----------         |  ------  |  --------                  |
 |  nickname           |  string  |  null: false               |
 |  email              |  string  |  null: false , unique: true|
-|  password           |  string  |  null: false               |
 |  encrypted_password |  string  |  null: false               |
-## deviseのgemを使用しての実装になるため、deviseが予め用意しているencrypted_passwordというカラムを用意してあげましょう。
-## 上記、レビューがあったため、追加しました
 |  first_name         |  string  |  null: false               |
 |  last_name          |  string  |  null: false               |
 |  first_name_kana    |  string  |  null: false               |
 |  last_name_kana     |  string  |  null: false               |
 |  birth_day          |  date    |  null: false               |
-・has_many:product
+・has_many:products
+・has_one:order
 
 ## productsテーブル
 
@@ -31,6 +29,7 @@
 |  price               |  integer     |  null: false        |
 |  user                |  references  |  foreign_key: true  |
 ・belongs_to:user
+・has_one:order
 
 ## addressesテーブル
 
@@ -52,4 +51,6 @@
 |  user         |  references  |  foreign_key: true  |
 |  product      |  references  |  foreign_key: true  |
 ・has_one:address
+・belongs_to:user
+・belongs_to:product
 
