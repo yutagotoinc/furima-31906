@@ -13,7 +13,7 @@
 |  last_name_kana     |  string  |  null: false               |
 |  birth_day          |  date    |  null: false               |
 ・has_many:products
-・has_one:order
+・has_many:orders
 
 ## productsテーブル
 
@@ -40,7 +40,7 @@
 |  city          |  string      |  null: false        |
 |  block_number  |  string      |  null: false        |
 |  building      |  string      |  -----------        |
-|  phone_number  |  integer     |  null: false        |
+|  phone_number  |  string     |  null: false        |
 |  order         |  references  |  foreign_key: true  |
 ・belongs_to:order
 
