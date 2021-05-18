@@ -133,6 +133,10 @@ RSpec.describe User, type: :model do
           @user.password_confirmation = '000aaa'
           expect(@user).to be_valid
         end
+
+        it "全てのデータが問題なく入力されていれば登録ができること" do
+          expect(@user).to be_valid
+        end
       end
   end
 end
