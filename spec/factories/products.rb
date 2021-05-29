@@ -7,8 +7,8 @@ FactoryBot.define do
     charge_id             {'2'}
     area_id               {'2'}
     duration_id           {'2'}
-    price                 {'300'}
-    user_id           {'2'}
+    price                 {300}
+    association :user
 
     after(:build) do |product|
       product.image.attach(io: File.open('public/images/test.png'), filename: 'test.png')

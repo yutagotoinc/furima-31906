@@ -10,16 +10,10 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
-    validates :image
     validates :name
     validates :description
-    validates :category_id
-    validates :status_id
-    validates :charge_id
-    validates :area_id
-    validates :duration_id
     validates :price, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
-
+    validates :image
     with_options numericality: { other_than: 1 } do
       validates :category_id
       validates :status_id
