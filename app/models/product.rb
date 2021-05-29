@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   belongs_to :charge
   belongs_to :area
   belongs_to :duration
-  belongs_to :user,optional: true
+  belongs_to :user
   has_one :order
   has_one_attached :image
 
