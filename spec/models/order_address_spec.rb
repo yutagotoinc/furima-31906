@@ -3,7 +3,10 @@ require 'rails_helper'
   RSpec.describe OrderAddress, type: :model do
     describe '購入情報情報の保存' do
       before do
-        @order_address = FactoryBot.build(:order_address)
+        user = FactoryBot.create(:user)
+        product = FactoryBot.create(:product)
+        @order_address = FactoryBot.build(:order_address, user_id: user.id, product_id: product.id)
+        sleep 0.1 
       end
 
       context '内容に問題ない場合' do
@@ -51,6 +54,26 @@ require 'rails_helper'
           @order_address.phone_number = '090'
           @order_address.valid?
           expect(@order_address.errors.full_messages).to include('Phone number is too short (minimum is 10 characters)')
+        end
+        it 'phone_numberは英数字混同では保存できないこと' do
+          @order_address.phone_number = '0901111aaaa'
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include('Phone number is not a number')
+        end
+        it 'userが紐付いていないと保存できないこと' do
+          @order_address.user_id = nil
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("User can't be blank")
+        end
+        it 'tokenが空では登録できないこと' do
+          @order_address.token = nil
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("Token can't be blank")
+        end
+        it 'productが紐付いていないと保存できないこと' do
+          @order_address.product_id = nil
+          @order_address.valid?
+          expect(@order_address.errors.full_messages).to include("Product can't be blank")
         end
       end
     end
