@@ -40,7 +40,7 @@
 |  city          |  string      |  null: false        |
 |  block_number  |  string      |  null: false        |
 |  building      |  string      |  -----------        |
-|  phone_number  |  string     |  null: false        |
+|  phone_number  |  string      |  null: false        |
 |  order         |  references  |  foreign_key: true  |
 ・belongs_to:order
 
